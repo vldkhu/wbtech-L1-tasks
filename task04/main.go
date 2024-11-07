@@ -44,7 +44,7 @@ func worker(id int, vals <-chan int, wg *sync.WaitGroup, signal chan os.Signal) 
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
+	rand.New(rand.NewSource(time.Now().UnixNano()))
 	var amountGo int
 	_, err := fmt.Scan(&amountGo)
 	if err != nil {
